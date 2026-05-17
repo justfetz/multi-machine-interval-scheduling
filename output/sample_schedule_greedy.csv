@@ -1,0 +1,9 @@
+machine_id,job_id,start,end
+M1,J1,0,1
+M1,J10,2,3
+M1,J7,3,4
+M1,J4,8,9
+M1,J11,9,11
+M2,J8,0,2
+M2,J2,2,4
+M3,J9,1,5

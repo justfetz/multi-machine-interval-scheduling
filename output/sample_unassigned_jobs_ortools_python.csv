@@ -1,0 +1,4 @@
+job_id,start,end,reason
+J2,2,4,overlap_no_machine_available
+J3,3,5,overlap_no_machine_available
+J9,1,5,overlap_no_machine_available

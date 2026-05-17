@@ -1,0 +1,6 @@
+java/out/
+python/__pycache__/
+python/solver/__pycache__/
+ortools-python/__pycache__/
+ortools-python/solver/__pycache__/
+*.pyc

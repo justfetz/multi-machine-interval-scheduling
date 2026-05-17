@@ -51,6 +51,17 @@ multi-machine-interval-scheduling/
   ortools-java/
 ```
 
+Core Java source lives in:
+
+- [`java/src/mmis/Main.java`](./java/src/mmis/Main.java)
+- [`java/src/mmis/GreedyScheduler.java`](./java/src/mmis/GreedyScheduler.java)
+- [`java/src/mmis/Job.java`](./java/src/mmis/Job.java)
+- [`java/src/mmis/MachineSchedule.java`](./java/src/mmis/MachineSchedule.java)
+- [`java/src/mmis/CsvJobReader.java`](./java/src/mmis/CsvJobReader.java)
+- [`java/src/mmis/CsvScheduleWriter.java`](./java/src/mmis/CsvScheduleWriter.java)
+
+If you are viewing the repo on GitHub, open the [`java/src/mmis/`](./java/src/mmis/) folder directly.
+
 ## Reproducible commands
 
 Java baseline:
@@ -82,24 +93,39 @@ Run every track:
 
 ## Sample input
 
-See [input/sample_jobs.csv](C:/Users/Admin/talk_to_my_machine/.claude/worktrees/inspiring-meninsky-2b31b1/.tmp/multi-machine-interval-scheduling/input/sample_jobs.csv).
+See [`input/sample_jobs.csv`](./input/sample_jobs.csv).
 
 ## Verified sample outputs
 
 Greedy baseline reference:
 
-- [output/sample_schedule_greedy_java.csv](C:/Users/Admin/talk_to_my_machine/.claude/worktrees/inspiring-meninsky-2b31b1/.tmp/multi-machine-interval-scheduling/output/sample_schedule_greedy_java.csv)
-- [output/sample_unassigned_jobs_java.csv](C:/Users/Admin/talk_to_my_machine/.claude/worktrees/inspiring-meninsky-2b31b1/.tmp/multi-machine-interval-scheduling/output/sample_unassigned_jobs_java.csv)
+- [`output/sample_schedule_greedy_java.csv`](./output/sample_schedule_greedy_java.csv)
+- [`output/sample_unassigned_jobs_java.csv`](./output/sample_unassigned_jobs_java.csv)
 
 Python greedy mirror:
 
-- [output/sample_schedule_greedy_python.csv](C:/Users/Admin/talk_to_my_machine/.claude/worktrees/inspiring-meninsky-2b31b1/.tmp/multi-machine-interval-scheduling/output/sample_schedule_greedy_python.csv)
-- [output/sample_unassigned_jobs_python.csv](C:/Users/Admin/talk_to_my_machine/.claude/worktrees/inspiring-meninsky-2b31b1/.tmp/multi-machine-interval-scheduling/output/sample_unassigned_jobs_python.csv)
+- [`output/sample_schedule_greedy_python.csv`](./output/sample_schedule_greedy_python.csv)
+- [`output/sample_unassigned_jobs_python.csv`](./output/sample_unassigned_jobs_python.csv)
 
 OR-Tools CP-SAT result:
 
-- [output/sample_schedule_ortools_python.csv](C:/Users/Admin/talk_to_my_machine/.claude/worktrees/inspiring-meninsky-2b31b1/.tmp/multi-machine-interval-scheduling/output/sample_schedule_ortools_python.csv)
-- [output/sample_unassigned_jobs_ortools_python.csv](C:/Users/Admin/talk_to_my_machine/.claude/worktrees/inspiring-meninsky-2b31b1/.tmp/multi-machine-interval-scheduling/output/sample_unassigned_jobs_ortools_python.csv)
+- [`output/sample_schedule_ortools_python.csv`](./output/sample_schedule_ortools_python.csv)
+- [`output/sample_unassigned_jobs_ortools_python.csv`](./output/sample_unassigned_jobs_ortools_python.csv)
+
+## Java implementation
+
+The Java baseline is a simple, readable greedy solver built around explicit domain classes instead of the original school-project array logic.
+
+Key classes:
+
+- `Main.java`: CLI entry point
+- `CsvJobReader.java`: reads jobs from CSV
+- `GreedyScheduler.java`: earliest-finish greedy assignment
+- `MachineSchedule.java`: per-machine schedule state
+- `CsvScheduleWriter.java`: writes assigned and unassigned CSV outputs
+- `SolverResult.java`: final result payload
+
+The code is intentionally plain Java so someone can clone the repo and follow the solver without needing a framework.
 
 ## Planned implementations
 

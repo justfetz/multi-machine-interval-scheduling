@@ -71,6 +71,13 @@ cd java
 .\run-java.ps1
 ```
 
+Java tests:
+
+```powershell
+cd java
+.\run-java-tests.ps1
+```
+
 Python greedy baseline:
 
 ```powershell
@@ -159,11 +166,11 @@ Completed:
 2. Replaced `input.txt` with CSV input.
 3. Wrote schedule and unassigned outputs as CSV.
 4. Added Python and OR-Tools sample tests.
-5. Verified Java, Python, and OR-Tools runs on the same sample instance.
+5. Added a lightweight Java regression harness with no external test framework.
+6. Verified Java, Python, and OR-Tools runs on the same sample instance.
 
 ## Next steps
 
-1. Add a lightweight Java test harness.
-2. Package this scaffold as a dedicated public GitHub repo.
-3. Polish the README for public publishing.
-4. Repeat this same structure for cutting stock, transportation, and transshipment.
+1. Add OR-Tools Java for parity with the Python model.
+2. Compare greedy vs CP-SAT behavior on richer benchmark inputs.
+3. Repeat this same structure for cutting stock, transportation, and transshipment.

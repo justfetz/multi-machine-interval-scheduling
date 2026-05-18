@@ -1,4 +1,6 @@
 java/out/
+ortools-java/target/
+ortools-java/.mvn/
 java/test-output/
 python/__pycache__/
 python/solver/__pycache__/

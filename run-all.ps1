@@ -13,4 +13,9 @@ Push-Location ".\ortools-python"
 powershell -ExecutionPolicy Bypass -File .\run-ortools-python.ps1
 Pop-Location
 
+Write-Host "Running Java OR-Tools baseline..."
+Push-Location ".\ortools-java"
+powershell -ExecutionPolicy Bypass -File .\run-ortools-java.ps1
+Pop-Location
+
 Write-Host "Completed all solver runs."

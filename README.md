@@ -92,6 +92,14 @@ cd ortools-python
 .\run-ortools-python.ps1
 ```
 
+Java OR-Tools baseline:
+
+```powershell
+cd ortools-java
+.\run-ortools-java.ps1
+.\run-ortools-java-tests.ps1
+```
+
 Run every track:
 
 ```powershell
@@ -156,7 +164,9 @@ The code is intentionally plain Java so someone can clone the repo and follow th
 
 ### OR-Tools Java
 
-- parity implementation after the Python model is stable
+- CP-SAT parity implementation
+- same CSV input/output contract
+- Maven-backed Java build
 
 ## Current status
 
@@ -171,6 +181,6 @@ Completed:
 
 ## Next steps
 
-1. Add OR-Tools Java for parity with the Python model.
-2. Compare greedy vs CP-SAT behavior on richer benchmark inputs.
-3. Repeat this same structure for cutting stock, transportation, and transshipment.
+1. Compare greedy vs CP-SAT behavior on richer benchmark inputs.
+2. Add fixed machine capabilities or weighted job variants.
+3. Repeat this same structure across additional scheduling families.

@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install test deps
+        run: pip install pytest
+      - name: Pure-Python tests
+        run: python -m pytest python/tests -q
+
+  ortools-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: pip install pytest -r ortools-python/requirements.txt
+      - name: OR-Tools Python tests
+        run: python -m pytest ortools-python/tests -q
+
+  java:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Compile and run plain-Java tests
+        run: |
+          cd java
+          mkdir -p out
+          javac -d out src/mmis/*.java tests/TestGreedyScheduler.java
+          java -cp out mmis.tests.TestGreedyScheduler
+
+  ortools-java:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+      - name: Maven test
+        run: mvn -q -f ortools-java/pom.xml test

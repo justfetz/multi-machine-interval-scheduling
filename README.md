@@ -1,5 +1,7 @@
 # Multi-Machine Interval Scheduling
 
+![CI](https://github.com/justfetz/multi-machine-interval-scheduling/actions/workflows/ci.yml/badge.svg)
+
 Java, Python, and OR-Tools implementations of a fixed-window multi-machine job scheduling problem.
 
 This repository is the polished successor to the older school project repo. The original coursework version still belongs in the learning bucket, while this version is meant to be the public technical showcase.
